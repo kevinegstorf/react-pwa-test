@@ -1,0 +1,10 @@
+{
+    "name": "Vanilla Chuck",
+    "short_name": "Vanilla Chuck",
+    "lang": "en-US",
+    "start_url": "/",
+    "orientation": "portrait",
+    "display": "standalone",
+    "theme_color": "#ff69b4",
+    "background_color": "#32cd32"
+}
