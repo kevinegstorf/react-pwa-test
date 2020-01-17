@@ -1,8 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [coords, setCoords] = React.useState({});
+  const [time, setTime] = React.useState();
+
+  React.useEffect(() => {
+    setInterval(myTimer, 1000);
+    navigator.geolocation.getCurrentPosition(success);
+    function myTimer() {
+      const d = new Date();
+      setTime(d.toLocaleTimeString());
+    }
+  }, []);
+
+  function success(pos) {
+    const crd = pos.coords;
+    setCoords(crd);
+  }
+
+  console.log(coords);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +35,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <p>{time}</p>
+          <p>{coords.latitude}</p>
+          <p>{coords.longitude}</p>
         </a>
       </header>
     </div>
